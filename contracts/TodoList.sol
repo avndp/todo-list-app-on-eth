@@ -9,4 +9,15 @@ contract TodoList {
         bool completed;
     }
 
+    mapping(uint => Task) public tasks;
+
+    constructor() public {
+        createTask("Aravinds first TodoList on Ethereum");
+    }
+
+    function createTask(string memory _content) public {
+        taskCount++;
+        tasks[taskCount] = Task(taskCount, _content, false);
+    }
+
 }
